@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 
 var port = process.env.PORT || 8000;
-// var db = process.env.MONGOLAB_URI || 'mongodb://localhost/';
+var db = process.env.MONGOLAB_URI || 'mongodb://localhost/';
 
 var app = express();
 
