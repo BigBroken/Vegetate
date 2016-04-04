@@ -13,5 +13,5 @@ var userSchema = new Schema({
 
 });
 
-var User = mongoose.model('User', userSchema);
-var Produce = mongoose.model('Produce', produceSchema);
+exports.User = mongoose.model('User', userSchema);
+exports.Produce = mongoose.model('Produce', produceSchema);
