@@ -1,11 +1,9 @@
 <html ng-app='vegetate'>
+<script src="lib/angular/angular.js"></script>
+<script src="lib/angular-route/angular-route.js"></script>
  <!-- Body tag augmented with ngController directive  -->
- <body ng-controller="MyController">
-   <input ng-model="foo" value="bar">
-   <!-- Button tag with ng-click directive, and
-          string expression 'buttonText'
-          wrapped in "{{ }}" markup -->
-   <button ng-click="changeFoo()">{{buttonText}}</button>
-   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+
+ <div ng-view></div>
+
  </body>
 </html>
