@@ -1,4 +1,8 @@
 var mongoose = require('mongoose');
 var Model = require('*/userController.js')
 
-console.log(model.user);
+
+var checkUser = function(req, res){
+  //check if the user is logged in
+};
+
