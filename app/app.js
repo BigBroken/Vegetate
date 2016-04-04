@@ -3,9 +3,11 @@ angular.module('vegetate', [
   'login',
   'pantry',
 ]).
-config(['$routeProvider', function($routeProvider) {
+config( function($routeProvider, $httpProvider) {
   $routeProvider.when( '/',{ 
     // templateUrl: 'app/auth/signin.html',
     // controller: 'AuthController'
   }).otherwise({redirectTo: '/'});
-}]);
+}).run(function($scope){
+
+});
