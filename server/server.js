@@ -11,10 +11,7 @@ mongoose.connect(db);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
-app.get('/', function(req, res) {
-  res.json({message: 'Welcome to Vegetate'});
-});
+app.use(express.static(__dirname + '/../App'));
 
 
 app.listen(port, function(err) {
