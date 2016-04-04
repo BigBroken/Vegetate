@@ -1,13 +1,12 @@
 angular.module('vegetate', [
   'ngRoute',
-  'login',
-  'pantry',
+  'vegetate.pantry'
 ]).
-config( function($routeProvider, $httpProvider) {
-  $routeProvider.when( '/',{ 
-    // templateUrl: 'app/auth/signin.html',
-    // controller: 'AuthController'
+config(function($routeProvider, $httpProvider) {
+  $routeProvider.when( '/pantry',{ 
+    templateUrl: 'pantry/pantry.html',
+    controller: 'pantryController'
   }).otherwise({redirectTo: '/'});
-}).run(function($scope){
+}).run(function(){
 
 });
