@@ -1,6 +1,7 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
+var model = require('./models/schema');
 
 var port = process.env.PORT || 8000;
 var db = process.env.MONGOLAB_URI || 'mongodb://localhost/produce';
@@ -13,7 +14,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/../App'));
 
-app.get('/db/pantry',function(res, req){
+app.get('/db/pantry',function(req, res){
   console.log('attempting to get pantry');
   model.Produce.find({}, function(err, pantry){
     if(err){
