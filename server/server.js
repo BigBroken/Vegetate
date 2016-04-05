@@ -19,7 +19,7 @@ app.get('/db/pantry',function(req, res){
   console.log('attempting to get pantry');
   model.Pantry.find({}, function(err, pantry){
     if(err){
-      console.log(err);
+      console.log(err+'heyy');
       return err;
     }
     // console.log(pantry);
