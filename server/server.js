@@ -5,7 +5,7 @@ var model = require('./models/schema');
 var moment = require('moment')
 
 var port = process.env.PORT || 8000;
-var db = process.env.MONGOLAB_URI || 'mongodb://localhost/produce';
+var db = process.env.MONGOLAB_URI || 'mongodb://localhost/dataBase';
 
 var app = express();
 
@@ -17,7 +17,7 @@ app.use(express.static(__dirname + '/../App'));
 
 app.get('/db/pantry',function(req, res){
   console.log('attempting to get pantry');
-  model.Produce.find({}, function(err, pantry){
+  model.Pantry.find({}, function(err, pantry){
     if(err){
       console.log(err);
       return err;
@@ -31,6 +31,17 @@ app.get('/db/pantry',function(req, res){
       };
     });
     res.send(data);
+  });
+});
+
+app.post('/db/pantry', function(req, res) {
+  console.log(req.body);
+  model.Produce.findOne(req.body , function(err, vegetable){
+    if(err) {
+      console.log(err);
+      return err;
+    }
+    new model.Pantry({name: vegetbale.name, shelf_life: vegetable.shelf_life}).save();
   });
 });
 
