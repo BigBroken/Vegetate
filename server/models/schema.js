@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 var produceSchema = new Schema({
   name:  String,
-  shelf_life: String,
+  shelf_life: Number,
   date: { type: Date, default: Date.now },
 });
 
