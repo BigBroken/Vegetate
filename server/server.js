@@ -13,7 +13,7 @@ mongoose.connect(db);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use('/',express.static(__dirname + '/../App'));
+app.use('/',express.static(__dirname + '/../app'));
 
 app.get('/db/pantry',function(req, res){
   console.log('attempting to get pantry');
