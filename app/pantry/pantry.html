@@ -1,15 +1,14 @@
 <div class="pantry">
-  <form name='Pantry' ng-submit="" novalidate>
+  <form name='Pantry' ng-submit="pantryPost()" ng-controller:"pantryController">
     <input name='addProduce' type="text"
-      ng-model="produce"
-      placeholder="item" required>
-    <button type="submit" value="Add to pantry">
-      Add to Pantry
-    </button>
+      ng-model="pantry"
+      placeholder="item"/>
+    <input type="submit" value="Add to pantry"/>
   </form>
 
   <div ng-repeat='produce in produces.data'>{{produce.name}}
-    <ul> {{(produce.elapsed / 60)}} hours / {{produce.shelf_life}} hours 
+    <ul> {{(produce.elapsed / 60)}} hours / {{produce.shelf_life / 60}} hours 
+      <input type='submit' value ="remove from pantry" ng-click='pantryRemove(produce._id)'/>
     </ul>
   </div>
 </div>
