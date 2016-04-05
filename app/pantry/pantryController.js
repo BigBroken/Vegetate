@@ -33,7 +33,6 @@ $scope.pantryGet();
 
   };
   $scope.pantryRemove = function(id){
-  console.log('in remove', id);
     $http({
       method: 'Post',
       url: '/db/remove',
