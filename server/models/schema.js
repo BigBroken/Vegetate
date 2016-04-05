@@ -16,13 +16,9 @@ var userSchema = new Schema({
 exports.User = mongoose.model('user', userSchema);
 
 var pantrySchema = new Schema({
-  name: [
-    {type: Schema.Types.ObjectId, ref:'produce'}
-  ],
+  name: String,
   date: { type: Date, default: Date.now },
-  shelf_life:[
-    {type: Schema.Types.ObjectId, ref:'produce'}
-  ]
+  shelf_life:Number
 });
 exports.Pantry = mongoose.model('pantry', pantrySchema);
 
