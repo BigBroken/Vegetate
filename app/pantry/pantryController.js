@@ -10,7 +10,9 @@ angular.module('vegetate.pantry', [])
   method: 'GET',
   url: '/db/pantry'
   }).then(function(res) {
-    $scope.produces = res.data;
+    $scope.produces = res;
+     console.log($scope.produces);
   });
+
 
 });
