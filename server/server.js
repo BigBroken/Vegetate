@@ -2,6 +2,7 @@ var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var model = require('./models/schema');
+var moment = require('moment')
 
 var port = process.env.PORT || 8000;
 var db = process.env.MONGOLAB_URI || 'mongodb://localhost/produce';
@@ -21,10 +22,20 @@ app.get('/db/pantry',function(req, res){
       console.log(err);
       return err;
     }
-    res.send(pantry);
+    // console.log(pantry);
+    var data = pantry.map(function(item) {
+      return {
+        name: item.name,
+        elapsed: (moment().diff(moment(item.date),'minutes')),
+        shelf_life: item.shelf_life
+      };
+    });
+    res.send(data);
   });
 });
 
+
+// new model.Produce({name: 'broccoli', shelf_life: 72}).save();
 
 app.listen(port, function(err) {
   if (err) {
