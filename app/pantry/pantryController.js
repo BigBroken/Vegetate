@@ -8,7 +8,9 @@ angular.module('vegetate.pantry', [])
 
 //calculates freshness based of database values of date and shelflife
 //In its current form date takes the form of "yyyy-mm-ddThh:mm:ZZZ.340Z"
-
+  $scope.formatNumber = function(i) {
+    return Math.round(i * 100)/100; 
+  }
 
   $scope.pantryGet = function(){
     $http({
@@ -30,8 +32,8 @@ $scope.pantryGet();
     }).then(function(res) {
       $scope.pantryGet();
     });
-
   };
+
   $scope.pantryRemove = function(id){
     $http({
       method: 'Post',

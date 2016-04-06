@@ -1,5 +1,5 @@
 <div class="pantry">
-<h1> Your Pantry </h1>
+<h1> Your Produce </h1>
   <form name='Pantry' ng-submit="pantryPost()" ng-controller:"pantryController">
     <input name='addProduce' type="text"
       ng-model="pantry"
@@ -7,11 +7,21 @@
     <input type="submit" value="Add to pantry"/>
   </form>
 
-  <div ng-repeat='produce in produces.data'>{{produce.name}}
-    <ul>    <div class="meter">
+
+  <form name='PantrySearch'>
+    <input name='addProduce' type="text"
+      ng-model="search"
+      placeholder="find in pantry" autocomplete="off"/>
+  </form>
+
+
+
+  <div ng-repeat='produce in produces.data |filter: search'>{{produce.name}}
+    <ul> 
+     <div class="meter">
       <span ng-style="{'width':'{{produce.elapsed/produce.shelf_life*100}}%'}"></span>
     </div> 
-    {{(produce.elapsed / 60)}} hours / {{produce.shelf_life / 60}} hours 
+    {{formatNumber(produce.elapsed / 60)}} hours / {{produce.shelf_life / 60 }} hours 
       <input type='submit' value ="remove from pantry" ng-click='pantryRemove(produce._id)'/>
     </ul>
   </div>
